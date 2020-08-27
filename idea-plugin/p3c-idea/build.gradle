@@ -1,5 +1,9 @@
 plugins {
-    id "org.jetbrains.intellij" version '0.4.5'
+    id 'java'
+    id "org.jetbrains.intellij" version "0.4.21"
+
+    id 'maven'
+    id "com.github.ben-manes.versions" version "0.29.0"
 }
 apply plugin: 'kotlin'
 apply plugin: 'idea'
@@ -12,7 +16,7 @@ if (intVersion >= 2019 || (intVersion < 1000 && intVersion >= 193)) {
 }
 
 intellij {
-    version idea_version
+    localPath "/Applications/Android Studio.app/Contents"
     plugins = myPlugins
     pluginName plugin_name
     updateSinceUntilBuild false
@@ -22,8 +26,10 @@ intellij {
 version plugin_version
 
 dependencies {
-    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.25-incubating'
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.30'
     compile project(':p3c-common')
-    compile group: 'org.javassist', name: 'javassist', version: '3.21.0-GA'
+    compile project(':studio-tools')
+    compile group: 'org.javassist', name: 'javassist', version: '3.27.0-GA'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 }
 

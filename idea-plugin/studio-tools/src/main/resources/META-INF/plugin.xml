@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>android.atlasv.studio.plugin</id>
+    <name>Atlasv-Studio-Tools</name>
+    <vendor email="support@atlasv.com" url="https://github.com/AtlasXV">Atlasv.Hangzhou</vendor>
+
+    <description><![CDATA[
+    AndroidStudio Tools by Atlasv Android Team
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="action.CheckDuplicateStringsAction" class="action.CheckDuplicateStringsAction" text="字符串查重"
+                description="字符串查重">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+        <action id="action.CheckSameSizePicsAction" class="action.CheckSameSizePicsAction" text="图片查重"
+                description="图片查重">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after"
+                          relative-to-action="action.CheckDuplicateStringsAction"/>
+        </action>
+        <action id="action.CheckDuplicateStringsKeysAction" class="action.CheckDuplicateStringsKeysAction" text="字符串Key查重"
+                description="字符串Key查重">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after"
+                          relative-to-action="action.CheckDuplicateStringsAction"/>
+        </action>
+    </actions>
+</idea-plugin>
